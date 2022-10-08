@@ -19,7 +19,7 @@ class AppRoutes {
     ),
     GetPage(
       name: Routes.signUpScreen,
-      page: () => const SignUpScreen(),
+      page: () => SignUpScreen(),
     ),
   ];
 }
