@@ -1,3 +1,4 @@
+import 'package:asro_shop/logic/bindings/auth_binding.dart';
 import 'package:asro_shop/view/screens/auth/login_screen.dart';
 import 'package:asro_shop/view/screens/auth/signup_screen.dart';
 import 'package:get/get.dart';
@@ -20,6 +21,7 @@ class AppRoutes {
     GetPage(
       name: Routes.signUpScreen,
       page: () => SignUpScreen(),
+      binding: AuthBinding(),
     ),
   ];
 }

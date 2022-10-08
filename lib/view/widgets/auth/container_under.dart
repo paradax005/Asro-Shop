@@ -1,6 +1,7 @@
 import 'package:asro_shop/utils/theme.dart';
 import 'package:asro_shop/view/widgets/text_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ContainerUnder extends StatelessWidget {
   final String text;
@@ -21,9 +22,9 @@ class ContainerUnder extends StatelessWidget {
           (MediaQuery.of(context).size.height / 1.3 +
               AppBar().preferredSize.height +
               20),
-      decoration: const BoxDecoration(
-        color: mainColor,
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        color: Get.isDarkMode ? mainColor : pinkClr,
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
         ),

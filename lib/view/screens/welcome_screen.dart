@@ -1,4 +1,5 @@
 import 'package:asro_shop/routes/routes.dart';
+import 'package:asro_shop/utils/assets_path.dart';
 import 'package:asro_shop/utils/theme.dart';
 import 'package:asro_shop/view/widgets/text_utils.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class WelcomeScreen extends StatelessWidget {
               width: double.infinity,
               height: double.infinity,
               child: Image.asset(
-                'assets/images/background.png',
+                AssetPath.welcomeBg,
                 fit: BoxFit.cover,
               ),
             ),
