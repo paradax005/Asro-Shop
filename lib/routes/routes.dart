@@ -2,6 +2,7 @@ import 'package:asro_shop/logic/bindings/auth_binding.dart';
 import 'package:asro_shop/view/screens/auth/login_screen.dart';
 import 'package:asro_shop/view/screens/auth/signup_screen.dart';
 import 'package:get/get.dart';
+import '../view/screens/auth/forgot_password_screen.dart';
 import '../view/screens/welcome_screen.dart';
 
 class AppRoutes {
@@ -16,11 +17,17 @@ class AppRoutes {
     ),
     GetPage(
       name: Routes.loginScreen,
-      page: () => const LoginScreen(),
+      page: () => LoginScreen(),
+      binding: AuthBinding(),
     ),
     GetPage(
       name: Routes.signUpScreen,
       page: () => SignUpScreen(),
+      binding: AuthBinding(),
+    ),
+    GetPage(
+      name: Routes.forgotPasswordScreen,
+      page: () => FrogotPasswordScreen(),
       binding: AuthBinding(),
     ),
   ];
@@ -30,4 +37,5 @@ class Routes {
   static const welcomeScreen = '/welcomeScreen';
   static const loginScreen = '/loginScreen';
   static const signUpScreen = '/signUpScreen';
+  static const forgotPasswordScreen = '/forgotPassword';
 }

@@ -19,7 +19,7 @@ class ContainerUnder extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: MediaQuery.of(context).size.height -
-          (MediaQuery.of(context).size.height / 1.3 +
+          (MediaQuery.of(context).size.height / 1.25 +
               AppBar().preferredSize.height +
               20),
       decoration: BoxDecoration(

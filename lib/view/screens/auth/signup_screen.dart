@@ -1,7 +1,7 @@
 import 'package:asro_shop/logic/controllers/auth_controller.dart';
 import 'package:asro_shop/routes/routes.dart';
 import 'package:asro_shop/utils/assets_path.dart';
-import 'package:asro_shop/utils/my_string.dart';
+import 'package:asro_shop/utils/pattern.dart';
 import 'package:asro_shop/utils/theme.dart';
 import 'package:asro_shop/view/widgets/auth/container_under.dart';
 import 'package:asro_shop/view/widgets/text_utils.dart';
@@ -37,7 +37,7 @@ class SignUpScreen extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height / 1.3,
+                height: MediaQuery.of(context).size.height / 1.25,
                 color: Colors.transparent,
                 child: Padding(
                   padding: const EdgeInsets.only(
@@ -166,7 +166,7 @@ class SignUpScreen extends StatelessWidget {
                 text: 'Already Have an Account?',
                 textType: 'Log in',
                 onPressed: () {
-                  Get.toNamed(Routes.loginScreen);
+                  Get.offNamed(Routes.loginScreen);
                 },
               ),
             ],
