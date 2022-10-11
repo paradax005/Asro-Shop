@@ -5,6 +5,7 @@ import 'package:asro_shop/utils/pattern.dart';
 import 'package:asro_shop/utils/theme.dart';
 import 'package:asro_shop/view/widgets/auth/container_under.dart';
 import 'package:asro_shop/view/widgets/text_utils.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -153,9 +154,38 @@ class SignUpScreen extends StatelessWidget {
                         const SizedBox(
                           height: 50,
                         ),
-                        AuthButton(
-                          text: "SIGN UP",
-                          onPressed: () {},
+                        GetBuilder<AuthController>(
+                          builder: (_) {
+                            return AuthButton(
+                              text: "SIGN UP",
+                              onPressed: () {
+                                if (formKey.currentState!.validate()) {
+                                  if (!controller.isCheckBox) {
+                                    Get.snackbar(
+                                      'Check Box',
+                                      'Please Accept terms and conditions !',
+                                      snackPosition: SnackPosition.BOTTOM,
+                                      backgroundColor: Colors.red,
+                                      colorText: Colors.white,
+                                    );
+                                  } else {
+                                    String name =
+                                        nameController.text.toString().trim();
+                                    String email =
+                                        emailController.text.toString();
+                                    String password =
+                                        passwordController.text.toString();
+
+                                    controller.signUpWithEmailAndPassword(
+                                      name: name,
+                                      email: email,
+                                      password: password,
+                                    );
+                                  }
+                                }
+                              },
+                            );
+                          },
                         ),
                       ],
                     ),
