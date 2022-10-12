@@ -20,14 +20,14 @@ class FrogotPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Get.isDarkMode ? Colors.white : darkGreyClr,
+        backgroundColor: !Get.isDarkMode ? Colors.white : darkGreyClr,
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Get.isDarkMode ? Colors.white : darkGreyClr,
+          backgroundColor: !Get.isDarkMode ? Colors.white : darkGreyClr,
           title: Text(
             'Forgot Password',
             style: TextStyle(
-              color: Get.isDarkMode ? mainColor : pinkClr,
+              color: !Get.isDarkMode ? mainColor : pinkClr,
             ),
           ),
           centerTitle: true,
@@ -37,7 +37,7 @@ class FrogotPasswordScreen extends StatelessWidget {
             },
             icon: Icon(
               Icons.arrow_back_ios,
-              color: Get.isDarkMode ? Colors.black : Colors.white,
+              color: !Get.isDarkMode ? Colors.black : Colors.white,
             ),
           ),
         ),
@@ -52,7 +52,7 @@ class FrogotPasswordScreen extends StatelessWidget {
                     "If you want to recover your account, then please provide your email ID below ...",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Get.isDarkMode ? Colors.black : Colors.white,
+                      color: !Get.isDarkMode ? Colors.black : Colors.white,
                     ),
                   ),
                   const SizedBox(height: 50),
@@ -70,7 +70,7 @@ class FrogotPasswordScreen extends StatelessWidget {
                         return null;
                       }
                     },
-                    prefixIcon: Get.isDarkMode
+                    prefixIcon: !Get.isDarkMode
                         ? Image.asset(AssetPath.emailIcon)
                         : const Icon(
                             Icons.email,

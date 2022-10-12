@@ -5,7 +5,6 @@ import 'package:asro_shop/utils/pattern.dart';
 import 'package:asro_shop/utils/theme.dart';
 import 'package:asro_shop/view/widgets/auth/container_under.dart';
 import 'package:asro_shop/view/widgets/text_utils.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,10 +28,10 @@ class SignUpScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Get.isDarkMode ? Colors.white : darkGreyClr,
+          backgroundColor: !Get.isDarkMode ? Colors.white : darkGreyClr,
           elevation: 0,
         ),
-        backgroundColor: Get.isDarkMode ? Colors.white : darkGreyClr,
+        backgroundColor: !Get.isDarkMode ? Colors.white : darkGreyClr,
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -54,7 +53,7 @@ class SignUpScreen extends StatelessWidget {
                           children: [
                             TextUtils(
                               text: "SIGN",
-                              color: Get.isDarkMode ? mainColor : pinkClr,
+                              color: !Get.isDarkMode ? mainColor : pinkClr,
                               fontSize: 28,
                               fontWeight: FontWeight.w500,
                             ),
@@ -64,7 +63,7 @@ class SignUpScreen extends StatelessWidget {
                             TextUtils(
                               text: "UP",
                               color:
-                                  Get.isDarkMode ? Colors.black : Colors.white,
+                                  !Get.isDarkMode ? Colors.black : Colors.white,
                               fontSize: 28,
                               fontWeight: FontWeight.w500,
                             ),
@@ -81,7 +80,7 @@ class SignUpScreen extends StatelessWidget {
                               return null;
                             }
                           },
-                          prefixIcon: Get.isDarkMode
+                          prefixIcon: !Get.isDarkMode
                               ? Image.asset(AssetPath.userIcon)
                               : const Icon(
                                   Icons.person,
@@ -101,7 +100,7 @@ class SignUpScreen extends StatelessWidget {
                               return null;
                             }
                           },
-                          prefixIcon: Get.isDarkMode
+                          prefixIcon: !Get.isDarkMode
                               ? Image.asset(AssetPath.emailIcon)
                               : const Icon(
                                   Icons.email,
@@ -123,7 +122,7 @@ class SignUpScreen extends StatelessWidget {
                                   return null;
                                 }
                               },
-                              prefixIcon: Get.isDarkMode
+                              prefixIcon: !Get.isDarkMode
                                   ? Image.asset(AssetPath.lockIcon)
                                   : const Icon(
                                       Icons.lock,

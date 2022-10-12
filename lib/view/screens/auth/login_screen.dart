@@ -26,10 +26,10 @@ class LoginScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Get.isDarkMode ? Colors.white : darkGreyClr,
+          backgroundColor: Get.isDarkMode ? darkGreyClr : Colors.white,
           elevation: 0,
         ),
-        backgroundColor: Get.isDarkMode ? Colors.white : darkGreyClr,
+        backgroundColor: Get.isDarkMode ? darkGreyClr : Colors.white,
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -51,7 +51,7 @@ class LoginScreen extends StatelessWidget {
                           children: [
                             TextUtils(
                               text: "LOG",
-                              color: Get.isDarkMode ? mainColor : pinkClr,
+                              color: Get.isDarkMode ? pinkClr : mainColor,
                               fontSize: 28,
                               fontWeight: FontWeight.w500,
                             ),
@@ -61,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                             TextUtils(
                               text: "IN",
                               color:
-                                  Get.isDarkMode ? Colors.black : Colors.white,
+                                  Get.isDarkMode ? Colors.white : Colors.black,
                               fontSize: 28,
                               fontWeight: FontWeight.w500,
                             ),
@@ -77,7 +77,7 @@ class LoginScreen extends StatelessWidget {
                               return null;
                             }
                           },
-                          prefixIcon: Get.isDarkMode
+                          prefixIcon: !Get.isDarkMode
                               ? Image.asset(AssetPath.emailIcon)
                               : const Icon(
                                   Icons.email,
@@ -99,7 +99,7 @@ class LoginScreen extends StatelessWidget {
                                   return null;
                                 }
                               },
-                              prefixIcon: Get.isDarkMode
+                              prefixIcon: !Get.isDarkMode
                                   ? Image.asset(AssetPath.lockIcon)
                                   : const Icon(
                                       Icons.lock,
@@ -110,7 +110,7 @@ class LoginScreen extends StatelessWidget {
                                 onPressed: () {
                                   controller.visibility();
                                 },
-                                icon: controller.isVisibilty
+                                icon: !controller.isVisibilty
                                     ? const Icon(
                                         Icons.visibility_off,
                                         color: Colors.black,
@@ -134,7 +134,7 @@ class LoginScreen extends StatelessWidget {
                             child: TextUtils(
                               text: "Forgot Password?",
                               color:
-                                  Get.isDarkMode ? Colors.black : Colors.white,
+                                  Get.isDarkMode ? Colors.white : Colors.black,
                               fontSize: 14,
                               fontWeight: FontWeight.normal,
                             ),
@@ -160,7 +160,7 @@ class LoginScreen extends StatelessWidget {
                         const SizedBox(height: 30),
                         TextUtils(
                           text: "OR",
-                          color: Get.isDarkMode ? Colors.black : Colors.white,
+                          color: !Get.isDarkMode ? Colors.black : Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                         ),

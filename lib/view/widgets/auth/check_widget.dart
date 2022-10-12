@@ -27,7 +27,7 @@ class CheckWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: controller.isCheckBox
-                    ? Get.isDarkMode
+                    ? !Get.isDarkMode
                         ? Image.asset(AssetPath.checkIcon)
                         : const Icon(
                             Icons.done,
@@ -42,13 +42,13 @@ class CheckWidget extends StatelessWidget {
               children: [
                 TextUtils(
                   text: 'I accept ',
-                  color: Get.isDarkMode ? Colors.black : Colors.white,
+                  color: !Get.isDarkMode ? Colors.black : Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.normal,
                 ),
                 TextUtils(
                   text: 'terms & conditions',
-                  color: Get.isDarkMode ? Colors.black : Colors.white,
+                  color: !Get.isDarkMode ? Colors.black : Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.normal,
                   underlineText: true,
