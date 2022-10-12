@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Asro Shop</string>    
+    <string name="facebook_app_id">626953615763154</string>
+    <string name="fb_login_protocol_scheme">fb626953615763154</string>
+    <string name="facebook_client_token">0895de820efa5969b1f972f80eb9b171</string>
+</resources>

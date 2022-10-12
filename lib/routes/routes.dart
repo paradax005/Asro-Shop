@@ -1,4 +1,5 @@
 import 'package:asro_shop/logic/bindings/auth_binding.dart';
+import 'package:asro_shop/logic/bindings/main_binding.dart';
 import 'package:asro_shop/view/screens/auth/login_screen.dart';
 import 'package:asro_shop/view/screens/auth/signup_screen.dart';
 import 'package:asro_shop/view/screens/main_screen.dart';
@@ -33,8 +34,13 @@ class AppRoutes {
     ),
     GetPage(
       name: Routes.mainScreen,
-      page: () => const MainScreen(),
-      binding: AuthBinding(),
+      page: () => MainScreen(),
+      bindings: [
+        AuthBinding(),
+        MainBinding(),
+      ],
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(seconds: 1),
     ),
   ];
 }

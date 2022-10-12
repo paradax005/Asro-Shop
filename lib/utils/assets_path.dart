@@ -9,4 +9,5 @@ class AssetPath {
   static const fbIcon = '${basePath}facebook.png';
   static const googleIcon = '${basePath}google.png';
   static const forgotPassword = '${basePath}forgetpass.png';
+  static const shopIcon = '${basePath}shop.png' ; 
 }
