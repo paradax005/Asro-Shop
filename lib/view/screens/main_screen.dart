@@ -4,6 +4,8 @@ import 'package:asro_shop/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../logic/controllers/theme_controller.dart';
+
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});
 
@@ -26,7 +28,9 @@ class MainScreen extends StatelessWidget {
             leading: Container(),
             actions: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  ThemeController().changeTheme();
+                },
                 icon: Image.asset(AssetPath.shopIcon),
               ),
             ],

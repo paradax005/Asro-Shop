@@ -20,7 +20,7 @@ class FrogotPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: !Get.isDarkMode ? Colors.white : darkGreyClr,
+        backgroundColor: context.theme.backgroundColor,
         appBar: AppBar(
           elevation: 0,
           backgroundColor: !Get.isDarkMode ? Colors.white : darkGreyClr,

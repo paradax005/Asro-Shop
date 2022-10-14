@@ -4,17 +4,27 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController extends GetxController {
+  // Login / SignUp
+  //(check box + password visibility)
   bool isVisibilty = false;
   bool isCheckBox = false;
 
+  // User Info
   FirebaseAuth auth = FirebaseAuth.instance;
   GoogleSignIn googleSignIn = GoogleSignIn();
-  String displayName = "";
+  String displayUserName = "";
   var displayUserPhoto = '';
   FacebookModel? facebookModel;
+
+  // Is User still connected to the app  ?
+  bool userSignedIn = false;
+  final GetStorage authBox = GetStorage();
+
+  // Methodes
 
   void visibility() {
     isVisibilty = !isVisibilty;
@@ -35,9 +45,11 @@ class AuthController extends GetxController {
       await auth
           .createUserWithEmailAndPassword(email: email, password: password)
           .then((value) {
-        displayName = name;
+        displayUserName = name;
         auth.currentUser!.updateDisplayName(name);
       });
+      userSignedIn = true;
+      authBox.write("auth", userSignedIn);
       update();
 
       Get.offNamed(Routes.mainScreen);
@@ -78,8 +90,10 @@ class AuthController extends GetxController {
       await auth
           .signInWithEmailAndPassword(email: email, password: password)
           .then((value) {
-        displayName = auth.currentUser!.displayName!;
+        displayUserName = auth.currentUser!.displayName!;
       });
+      userSignedIn = true;
+      authBox.write("auth", userSignedIn);
       update();
       Get.offNamed(Routes.mainScreen);
     } on FirebaseAuthException catch (error) {
@@ -111,8 +125,10 @@ class AuthController extends GetxController {
   void googleSignUp() async {
     try {
       final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
-      displayName = googleUser!.displayName!;
+      displayUserName = googleUser!.displayName!;
       displayUserPhoto = googleUser.photoUrl!;
+      userSignedIn = true;
+      authBox.write("auth", userSignedIn);
       // Obtain the auth details from the request
       // final GoogleSignInAuthentication? googleAuth =
       //     await googleUser.authentication;
@@ -141,7 +157,8 @@ class AuthController extends GetxController {
     if (loginResult.status == LoginStatus.success) {
       final userData = await FacebookAuth.instance.getUserData();
       facebookModel = FacebookModel.fromJson(userData);
-
+      userSignedIn = true;
+      authBox.write("auth", userSignedIn);
       update();
       Get.offNamed(Routes.mainScreen);
     }
@@ -183,5 +200,26 @@ class AuthController extends GetxController {
     }
   }
 
-  void logOut() {}
+  void logOut() async {
+    try {
+      await auth.signOut();
+      await googleSignIn.signOut();
+      await FacebookAuth.i.logOut();
+      displayUserName = '';
+      displayUserPhoto = '';
+      userSignedIn = false;
+      authBox.remove("auth");
+      update();
+
+      Get.offNamed(Routes.welcomeScreen);
+    } catch (error) {
+      Get.snackbar(
+        'Error! ',
+        error.toString(),
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.green,
+        colorText: Colors.white,
+      );
+    }
+  }
 }

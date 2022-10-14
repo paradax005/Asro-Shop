@@ -10,6 +10,7 @@ import '../view/screens/welcome_screen.dart';
 class AppRoutes {
   // Initial route
   static const welcome = Routes.welcomeScreen;
+  static const mainScreen = Routes.mainScreen ;
 
   // Get pages
   static final routes = [

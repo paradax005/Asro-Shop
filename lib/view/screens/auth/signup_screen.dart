@@ -28,7 +28,7 @@ class SignUpScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: !Get.isDarkMode ? Colors.white : darkGreyClr,
+          backgroundColor: context.theme.backgroundColor,
           elevation: 0,
         ),
         backgroundColor: !Get.isDarkMode ? Colors.white : darkGreyClr,
